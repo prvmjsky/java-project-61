@@ -4,21 +4,21 @@ import java.util.Scanner;
 
 public class Even {
     public static void play(Scanner scanner) {
-        Game.greet(scanner);
+        Engine.greet(scanner);
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        while (Game.isContinuing()) {
-            var randomNumber = Game.getRandomNumber();
+        while (Engine.isContinuing()) {
+            var randomNumber = Engine.getRandomNumber(100) + 1; // added 1 to avoid 0 and keep equal chances
             var correctAnswer = randomNumber % 2 == 0 ? "yes" : "no";
 
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             var userAnswer = scanner.next();
 
-            Game.compareAnswers(userAnswer, correctAnswer);
+            Engine.compareAnswers(userAnswer, correctAnswer);
         }
 
-        Game.end(scanner);
+        Engine.end(scanner);
     }
 }
