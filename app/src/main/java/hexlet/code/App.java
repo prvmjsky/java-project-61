@@ -1,7 +1,7 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import hexlet.code.games.EvenGame;
+import hexlet.code.games.Even;
 
 public class App {
     public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class App {
                 Cli.greetUser(scanner);
                 break;
             case "2":
-                EvenGame.playEvenGame(scanner);
+                Even.play(scanner);
                 break;
             default:
                 return;
