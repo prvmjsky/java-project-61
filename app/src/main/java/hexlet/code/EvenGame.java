@@ -20,14 +20,14 @@ public class EvenGame {
 
             System.out.println("Question: " + randomNumber);
 
-            boolean isEven = randomNumber % 2 == 0;
-            String correctAnswer = isEven ? "yes" : "no";
+            String correctAnswer = randomNumber % 2 == 0 ? "yes" : "no";
 
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
 
             if (!userAnswer.equals(correctAnswer)) {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
+                        + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
                 return;
             }
