@@ -11,7 +11,7 @@ public class Calc {
             var number2 = Engine.getRandomNumber(50);
             char operator;
 
-            Integer correctAnswer = switch (Engine.getRandomNumber(3)) {
+            int correctAnswer = switch (Engine.getRandomNumber(3)) {
                 case 0 -> {
                     operator = '+';
                     yield number1 + number2;
