@@ -7,7 +7,7 @@ public class Engine {
     private static String userName;
     private static boolean defeated = false;
     private static int round = 1;
-    private static final Random randomizer = new Random();
+    private static Random randomizer = new Random();
 
     public static void greet(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
