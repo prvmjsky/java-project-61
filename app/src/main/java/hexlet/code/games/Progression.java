@@ -4,10 +4,12 @@ import java.util.Scanner;
 import java.util.StringJoiner;
 
 public class Progression {
+    private static final int PROGRESSION_SIZE = 10;
+    private static final int RANDOM_ELEMENT_OF_PROGRESSION_BOUND = 20;
+    private static final int RANDOM_STEP_BOUND = 10;
+    private static final int RANDOM_HIDDEN_ELEMENT_BOUND = 10;
+
     public static int[] getRandomProgression() {
-        final var PROGRESSION_SIZE = 10;
-        final var RANDOM_ELEMENT_OF_PROGRESSION_BOUND = 20;
-        final var RANDOM_STEP_BOUND = 10;
 
         int[] progression = new int[PROGRESSION_SIZE];
         progression[0] = Engine.getRandomNumber(RANDOM_ELEMENT_OF_PROGRESSION_BOUND);
@@ -22,8 +24,6 @@ public class Progression {
 
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
-
-        final var RANDOM_HIDDEN_ELEMENT_BOUND = 10;
 
         while (Engine.isContinuing()) {
             int[] progression = getRandomProgression();

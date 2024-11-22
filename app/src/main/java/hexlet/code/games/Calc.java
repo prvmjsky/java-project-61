@@ -3,11 +3,11 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class Calc {
+    private static final int RANDOM_NUMBER_BOUND = 50;
+    private static final int RANDOM_OPERATOR_BOUND = 3;
+    
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
-
-        final var RANDOM_NUMBER_BOUND = 50;
-        final var RANDOM_OPERATOR_BOUND = 3;
 
         while (Engine.isContinuing()) {
             var number1 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);

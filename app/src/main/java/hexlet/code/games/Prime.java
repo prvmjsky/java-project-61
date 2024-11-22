@@ -3,6 +3,8 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class Prime {
+    private static final int RANDOM_NUMBER_BOUND = 82; // multiplication table range
+
     public static boolean isPrime(int number) {
         if (number < 2) {
             return false;
@@ -20,8 +22,6 @@ public class Prime {
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-
-        final var RANDOM_NUMBER_BOUND = 82; // multiplication table range
 
         while (Engine.isContinuing()) {
             var randomNumber = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
