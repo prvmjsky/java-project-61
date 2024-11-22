@@ -25,8 +25,9 @@ public class Progression {
 
             var correctAnswer = Integer.toString(hiddenValue);
             var progressionForQuestion = Arrays.toString(progression);
-            progressionForQuestion = progressionForQuestion.replace(correctAnswer, "..")
-                    .substring(1, progressionForQuestion.length() - 1);
+            progressionForQuestion = progressionForQuestion.substring(1, progressionForQuestion.length() - 1)
+                    .replace(",", "")
+                    .replace(correctAnswer, "..");
 
             System.out.println("What number is missing in the progression?");
             System.out.println("Question: " + progressionForQuestion);
