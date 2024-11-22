@@ -5,15 +5,15 @@ import java.util.StringJoiner;
 
 public class Progression {
     public static int[] getRandomProgression() {
-        var progressionSize = 10;
-        var randomElementOfProgressionBound = 20;
-        var randomStepBound = 10;
+        final var PROGRESSION_SIZE = 10;
+        final var RANDOM_ELEMENT_OF_PROGRESSION_BOUND = 20;
+        final var RANDOM_STEP_BOUND = 10;
 
-        int[] progression = new int[progressionSize];
-        progression[0] = Engine.getRandomNumber(randomElementOfProgressionBound);
-        var step = Engine.getRandomNumber(randomStepBound) + 1;
+        int[] progression = new int[PROGRESSION_SIZE];
+        progression[0] = Engine.getRandomNumber(RANDOM_ELEMENT_OF_PROGRESSION_BOUND);
+        var step = Engine.getRandomNumber(RANDOM_STEP_BOUND) + 1;
 
-        for (var i = 1; i < progressionSize; i++) {
+        for (var i = 1; i < PROGRESSION_SIZE; i++) {
             progression[i] = progression[i - 1] + step;
         }
 
@@ -23,11 +23,11 @@ public class Progression {
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
 
-        var randomHiddenElementBound = 10;
+        final var RANDOM_HIDDEN_ELEMENT_BOUND = 10;
 
         while (Engine.isContinuing()) {
             int[] progression = getRandomProgression();
-            var hiddenElement = progression[Engine.getRandomNumber(randomHiddenElementBound)];
+            var hiddenElement = progression[Engine.getRandomNumber(RANDOM_HIDDEN_ELEMENT_BOUND)];
             var correctAnswer = Integer.toString(hiddenElement);
 
             StringJoiner progressionForQuestion = new StringJoiner(" ");

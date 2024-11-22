@@ -8,7 +8,7 @@ public class Engine {
     private static boolean defeated = false;
     private static int currentRound = 1;
     private static final int FINAL_ROUND = 3;
-    private static Random randomizer = new Random();
+    private static final Random RANDOMIZER = new Random();
 
     public static void greet(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
@@ -22,7 +22,7 @@ public class Engine {
     }
 
     public static int getRandomNumber(int bound) {
-        return randomizer.nextInt(bound);
+        return RANDOMIZER.nextInt(bound);
     }
 
     public static void compareAnswers(String userAnswer, String correctAnswer) {

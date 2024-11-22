@@ -10,11 +10,11 @@ public class GCD {
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
 
-        var randomNumberBound = 100;
+        final var RANDOM_NUMBER_BOUND = 100;
 
         while (Engine.isContinuing()) {
-            var number1 = Engine.getRandomNumber(randomNumberBound) + 1; // added 1 to avoid 0
-            var number2 = Engine.getRandomNumber(randomNumberBound) + 1;
+            var number1 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND) + 1; // added 1 to avoid 0
+            var number2 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND) + 1;
             int correctAnswer = getGCD(number1, number2);
 
             System.out.println("Find the greatest common divisor of given numbers.");
