@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
-import java.util.Arrays;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 public class Progression {
     public static int[] getRandomProgression() {
@@ -23,17 +23,21 @@ public class Progression {
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
 
-        var randomHiddenValueBound = 10;
+        var randomHiddenElementBound = 10;
 
         while (Engine.isContinuing()) {
             int[] progression = getRandomProgression();
-            var hiddenValue = progression[Engine.getRandomNumber(randomHiddenValueBound)];
+            var hiddenElement = progression[Engine.getRandomNumber(randomHiddenElementBound)];
+            var correctAnswer = Integer.toString(hiddenElement);
 
-            var correctAnswer = Integer.toString(hiddenValue);
-            var progressionForQuestion = Arrays.toString(progression);
-            progressionForQuestion = progressionForQuestion.substring(1, progressionForQuestion.length() - 1)
-                    .replace(",", "")
-                    .replace(correctAnswer, "..");
+            StringJoiner progressionForQuestion = new StringJoiner(" ");
+            for (int num : progression) {
+                if (num == hiddenElement) {
+                    progressionForQuestion.add("..");
+                } else {
+                    progressionForQuestion.add(Integer.toString(num));
+                }
+            }
 
             System.out.println("What number is missing in the progression?");
             System.out.println("Question: " + progressionForQuestion);
