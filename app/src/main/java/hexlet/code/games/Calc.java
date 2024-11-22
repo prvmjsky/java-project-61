@@ -6,12 +6,15 @@ public class Calc {
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
 
+        var randomNumberBound = 50;
+        var randomOperatorBound = 3;
+
         while (Engine.isContinuing()) {
-            var number1 = Engine.getRandomNumber(50);
-            var number2 = Engine.getRandomNumber(50);
+            var number1 = Engine.getRandomNumber(randomNumberBound);
+            var number2 = Engine.getRandomNumber(randomNumberBound);
             char operator;
 
-            int correctAnswer = switch (Engine.getRandomNumber(3)) {
+            int correctAnswer = switch (Engine.getRandomNumber(randomOperatorBound)) {
                 case 0 -> {
                     operator = '+';
                     yield number1 + number2;

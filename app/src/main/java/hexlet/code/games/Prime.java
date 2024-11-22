@@ -19,11 +19,12 @@ public class Prime {
 
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
-
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
+        var randomNumberBound = 82; // multiplication table range
+
         while (Engine.isContinuing()) {
-            var randomNumber = Engine.getRandomNumber(82); // multiplication table range
+            var randomNumber = Engine.getRandomNumber(randomNumberBound);
             var correctAnswer = isPrime(randomNumber) ? "yes" : "no";
 
             System.out.println("Question: " + randomNumber);

@@ -6,8 +6,9 @@ import java.util.Scanner;
 public class Engine {
     private static String userName;
     private static boolean defeated = false;
-    private static int round = 1;
-    private static Random randomizer = new Random();
+    private static int currentRound = 1;
+    private static final int finalRound = 3;
+    private static final Random randomizer = new Random();
 
     public static void greet(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
@@ -17,7 +18,7 @@ public class Engine {
     }
 
     public static boolean isContinuing() {
-        return round <= 3 && !defeated;
+        return currentRound <= finalRound && !defeated;
     }
 
     public static int getRandomNumber(int bound) {
@@ -27,7 +28,7 @@ public class Engine {
     public static void compareAnswers(String userAnswer, String correctAnswer) {
         if (userAnswer.equals(correctAnswer)) {
             System.out.println("Correct!");
-            round++;
+            currentRound++;
         } else {
             System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
             defeated = true;

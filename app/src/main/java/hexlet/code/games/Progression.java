@@ -5,11 +5,15 @@ import java.util.Scanner;
 
 public class Progression {
     public static int[] getRandomProgression() {
-        int[] progression = new int[10];
-        progression[0] = Engine.getRandomNumber(20);
-        var step = Engine.getRandomNumber(10) + 1;
+        var progressionSize = 10;
+        var randomElementOfProgressionBound = 20;
+        var randomStepBound = 10;
 
-        for (var i = 1; i < 10; i++) {
+        int[] progression = new int[progressionSize];
+        progression[0] = Engine.getRandomNumber(randomElementOfProgressionBound);
+        var step = Engine.getRandomNumber(randomStepBound) + 1;
+
+        for (var i = 1; i < progressionSize; i++) {
             progression[i] = progression[i - 1] + step;
         }
 
@@ -19,9 +23,11 @@ public class Progression {
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
 
+        var randomHiddenValueBound = 10;
+
         while (Engine.isContinuing()) {
             int[] progression = getRandomProgression();
-            var hiddenValue = progression[Engine.getRandomNumber(10)];
+            var hiddenValue = progression[Engine.getRandomNumber(randomHiddenValueBound)];
 
             var correctAnswer = Integer.toString(hiddenValue);
             var progressionForQuestion = Arrays.toString(progression);
