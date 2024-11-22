@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Calc {
     private static final int RANDOM_NUMBER_BOUND = 50;
     private static final int RANDOM_OPERATOR_BOUND = 3;
-    
+
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
 
