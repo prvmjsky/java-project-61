@@ -7,7 +7,7 @@ public class Engine {
     private static String userName;
     private static boolean defeated = false;
     private static int currentRound = 1;
-    private static final int finalRound = 3;
+    private static final int FINAL_ROUND = 3;
     private static Random randomizer = new Random();
 
     public static void greet(Scanner scanner) {
@@ -18,7 +18,7 @@ public class Engine {
     }
 
     public static boolean isContinuing() {
-        return currentRound <= finalRound && !defeated;
+        return currentRound <= FINAL_ROUND && !defeated;
     }
 
     public static int getRandomNumber(int bound) {
