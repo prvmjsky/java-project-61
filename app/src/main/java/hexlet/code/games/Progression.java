@@ -24,10 +24,12 @@ public class Progression {
             var hiddenValue = progression[Engine.getRandomNumber(10)];
 
             var correctAnswer = Integer.toString(hiddenValue);
-            var questProgression = Arrays.toString(progression).replace(correctAnswer, "..");
+            var progressionForQuestion = Arrays.toString(progression);
+            progressionForQuestion = progressionForQuestion.replace(correctAnswer, "..")
+                    .substring(1, progressionForQuestion.length() - 1);
 
             System.out.println("What number is missing in the progression?");
-            System.out.println("Question: " + questProgression);
+            System.out.println("Question: " + progressionForQuestion);
             System.out.print("Your answer: ");
             var userAnswer = scanner.next();
 
