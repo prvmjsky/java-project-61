@@ -25,7 +25,7 @@ public class Progression {
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
 
-        while (Engine.isContinuing()) {
+        while (Engine.isGameContinuing()) {
             int[] progression = getRandomProgression();
             var hiddenElement = progression[Engine.getRandomNumber(RANDOM_HIDDEN_ELEMENT_BOUND)];
             var correctAnswer = Integer.toString(hiddenElement);
@@ -41,9 +41,8 @@ public class Progression {
 
             System.out.println("What number is missing in the progression?");
             System.out.println("Question: " + progressionForQuestion);
-            System.out.print("Your answer: ");
-            var userAnswer = scanner.next();
 
+            var userAnswer = Engine.getUserAnswer(scanner);
             Engine.compareAnswers(userAnswer, correctAnswer);
         }
 

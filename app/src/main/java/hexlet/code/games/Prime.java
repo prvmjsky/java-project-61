@@ -23,14 +23,13 @@ public class Prime {
         Engine.greet(scanner);
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-        while (Engine.isContinuing()) {
+        while (Engine.isGameContinuing()) {
             var randomNumber = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
             var correctAnswer = isPrime(randomNumber) ? "yes" : "no";
 
             System.out.println("Question: " + randomNumber);
-            System.out.print("Your answer: ");
-            var userAnswer = scanner.next();
 
+            var userAnswer = Engine.getUserAnswer(scanner);
             Engine.compareAnswers(userAnswer, correctAnswer);
         }
 

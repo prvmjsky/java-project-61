@@ -9,7 +9,7 @@ public class Calc {
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
 
-        while (Engine.isContinuing()) {
+        while (Engine.isGameContinuing()) {
             var number1 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
             var number2 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
             char operator;
@@ -34,9 +34,8 @@ public class Calc {
 
             System.out.println("What is the result of the expression?");
             System.out.println("Question: " + number1 + " " + operator + " " + number2);
-            System.out.print("Your answer: ");
-            var userAnswer = scanner.next();
 
+            var userAnswer = Engine.getUserAnswer(scanner);
             Engine.compareAnswers(userAnswer, Integer.toString(correctAnswer));
         }
 

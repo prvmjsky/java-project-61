@@ -17,12 +17,17 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
     }
 
-    public static boolean isContinuing() {
+    public static boolean isGameContinuing() {
         return currentRound <= FINAL_ROUND && !defeated;
     }
 
     public static int getRandomNumber(int bound) {
         return RANDOMIZER.nextInt(bound);
+    }
+
+    public static String getUserAnswer(Scanner scanner) {
+        System.out.print("Your answer: ");
+        return scanner.next();
     }
 
     public static void compareAnswers(String userAnswer, String correctAnswer) {
