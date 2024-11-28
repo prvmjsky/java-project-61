@@ -9,21 +9,22 @@ public class GCD {
         return (a % b == 0) ? Math.abs(b) : getGCD(b, a % b);
     }
 
-    public static void start(Scanner scanner) {
-        Engine.greet(scanner);
-        System.out.println("Find the greatest common divisor of given numbers.");
+    public static void start() {
+        var rules = "Find the greatest common divisor of given numbers.";
+        var finalRound = Engine.getFinalRound();
 
-        while (Engine.isGameContinuing()) {
+        String[] questions = new String[finalRound];
+        String[] correctAnswers = new String[finalRound];
+
+        for (var i = 0; i < finalRound; i++) {
             var number1 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND) + 1; // added 1 to avoid 0
             var number2 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND) + 1;
-            int correctAnswer = getGCD(number1, number2);
+            var correctAnswer = getGCD(number1, number2);
 
-            System.out.println("Question: " + number1 + " " + number2);
-
-            var userAnswer = Engine.getUserAnswer(scanner);
-            Engine.compareAnswers(userAnswer, Integer.toString(correctAnswer));
+            questions[i] = number1 + " " + number2;
+            correctAnswers[i] = Integer.toString(correctAnswer);
         }
 
-        Engine.end(scanner);
+        Engine.play(rules, questions, correctAnswers);
     }
 }
