@@ -1,11 +1,8 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
+
+import hexlet.code.games.*;
 
 public class App {
     public static void main(String[] args) {
@@ -24,7 +21,7 @@ public class App {
 
         switch (userChoice) {
             case "1" -> Cli.greetUser(scanner);
-            case "2" -> Even.start(scanner);
+            case "2" -> Even2.start();
             case "3" -> Calc.start(scanner);
             case "4" -> GCD.start(scanner);
             case "5" -> Progression.start(scanner);

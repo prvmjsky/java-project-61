@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class GCD {
     private static final int RANDOM_NUMBER_BOUND = 100;
 
-    public static int getGCD(int a, int b) {
+    private static int getGCD(int a, int b) {
         return (a % b == 0) ? Math.abs(b) : getGCD(b, a % b);
     }
 

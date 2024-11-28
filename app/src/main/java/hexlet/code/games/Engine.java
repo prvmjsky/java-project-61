@@ -17,6 +17,10 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
     }
 
+    public static int getFinalRound() {
+        return FINAL_ROUND;
+    }
+
     public static boolean isGameContinuing() {
         return currentRound <= FINAL_ROUND && !defeated;
     }
