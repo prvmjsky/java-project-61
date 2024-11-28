@@ -4,53 +4,68 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    private static String userName;
-    private static boolean defeated = false;
-    private static int currentRound = 1;
-    private static final int FINAL_ROUND = 3;
+    private static final Scanner SCANNER = new Scanner(System.in);
     private static final Random RANDOMIZER = new Random();
 
-    public static void greet(Scanner scanner) {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
-    }
+    private static final int FINAL_ROUND = 3;
+    private static int currentRound = 1;
+    private static boolean isDefeated = false;
 
-    public static int getFinalRound() {
-        return FINAL_ROUND;
-    }
-
-    public static boolean isGameContinuing() {
-        return currentRound <= FINAL_ROUND && !defeated;
-    }
+    private static String userName;
+    private static String userAnswer;
+    private static String correctAnswer;
 
     public static int getRandomNumber(int bound) {
         return RANDOMIZER.nextInt(bound);
     }
 
-    public static String getUserAnswer(Scanner scanner) {
-        System.out.print("Your answer: ");
-        return scanner.next();
+    public static int getFinalRound() { // for cycles in start methods
+        return FINAL_ROUND;
     }
 
-    public static void compareAnswers(String userAnswer, String correctAnswer) {
+    public static boolean isGameContinuing() {
+        return currentRound <= FINAL_ROUND && !isDefeated;
+    }
+
+    public static void greet() {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        userName = SCANNER.next();
+        System.out.println("Hello, " + userName + "!");
+    }
+
+    public static void compareAnswers() {
         if (userAnswer.equals(correctAnswer)) {
             System.out.println("Correct!");
             currentRound++;
         } else {
             System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-            defeated = true;
+            isDefeated = true;
         }
     }
 
-    public static void end(Scanner scanner) {
-        if (defeated) {
+    public static void end() {
+        if (isDefeated) {
             System.out.println("Let's try again, " + userName + "!");
         } else {
             System.out.println("Congratulations, " + userName + "!");
         }
 
-        scanner.close();
+        SCANNER.close();
+    }
+
+    public static void play(String rules, String[] questions, String[] correctAnswers) {
+        greet();
+        System.out.println(rules);
+
+        for (var i = 0; isGameContinuing(); i++) {
+            System.out.println("Question: " + questions[i]);
+            System.out.print("Your answer: ");
+            userAnswer = SCANNER.next();
+            correctAnswer = correctAnswers[i];
+            compareAnswers();
+        }
+
+        end();
     }
 }

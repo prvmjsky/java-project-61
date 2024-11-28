@@ -21,7 +21,7 @@ public class App {
 
         switch (userChoice) {
             case "1" -> Cli.greetUser(scanner);
-            case "2" -> Even2.start();
+            case "2" -> Even.start();
             case "3" -> Calc.start(scanner);
             case "4" -> GCD.start(scanner);
             case "5" -> Progression.start(scanner);

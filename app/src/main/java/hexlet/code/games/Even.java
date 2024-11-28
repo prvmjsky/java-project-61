@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public class Even {
     private static final int RANDOM_NUMBER_BOUND = 100;
 
@@ -9,20 +7,19 @@ public class Even {
         return number % 2 == 0;
     }
 
-    public static void start(Scanner scanner) {
-        Engine.greet(scanner);
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    public static void start() {
+        var rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        var finalRound = Engine.getFinalRound();
 
-        while (Engine.isGameContinuing()) {
-            var randomNumber = Engine.getRandomNumber(RANDOM_NUMBER_BOUND) + 1; // added 1 to avoid 0
-            var correctAnswer = randomNumber % 2 == 0 ? "yes" : "no";
+        String[] questions = new String[finalRound];
+        String[] correctAnswers = new String[finalRound];
 
-            System.out.println("Question: " + randomNumber);
-
-            var userAnswer = Engine.getUserAnswer(scanner);
-            Engine.compareAnswers(userAnswer, correctAnswer);
+        for (var i = 0; i < finalRound; i++) {
+            var number = Engine.getRandomNumber(RANDOM_NUMBER_BOUND) + 1; // added 1 to avoid 0
+            questions[i] = Integer.toString(number);
+            correctAnswers[i] = isEven(number) ? "yes" : "no";
         }
 
-        Engine.end(scanner);
+        Engine.play(rules, questions, correctAnswers);
     }
 }
