@@ -1,44 +1,40 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public class Calc {
     private static final int RANDOM_NUMBER_BOUND = 50;
     private static final int RANDOM_OPERATOR_BOUND = 3;
 
-    public static void start(Scanner scanner) {
-        Engine.greet(scanner);
-        System.out.println("What is the result of the expression?");
+    public static int calculate(int number1, int number2, char operator) {
+        return switch (operator) {
+            case '+' -> number1 + number2;
+            case '-' -> number1 - number2;
+            default -> (number1 / 2) * (number2 / 2); // balancing difficulty
+        };
+    }
 
-        while (Engine.isGameContinuing()) {
+    public static void start() {
+        var rules = "What is the result of the expression?";
+        var finalRound = Engine.getFinalRound();
+
+        String[] questions = new String[finalRound];
+        String[] correctAnswers = new String[finalRound];
+
+        for (var i = 0; i < finalRound; i++) {
             var number1 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
             var number2 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
             char operator;
 
-            int correctAnswer = switch (Engine.getRandomNumber(RANDOM_OPERATOR_BOUND)) {
-                case 0 -> {
-                    operator = '+';
-                    yield number1 + number2;
-                }
-                case 1 -> {
-                    operator = '-';
-                    yield number1 - number2;
-                }
-                default -> {
-                    operator = '*';
-                    // balancing difficulty
-                    number2 = number2 / 2;
-                    number1 = number1 / 2;
-                    yield number1 * (number2);
-                }
-            };
+            switch (Engine.getRandomNumber(RANDOM_OPERATOR_BOUND)) {
+                case 0 -> operator = '+';
+                case 1 -> operator = '-';
+                default -> operator = '*';
+            }
 
-            System.out.println("Question: " + number1 + " " + operator + " " + number2);
-
-            var userAnswer = Engine.getUserAnswer(scanner);
-            Engine.compareAnswers(userAnswer, Integer.toString(correctAnswer));
+            var correctAnswer = calculate(number1, number2, operator);
+            questions[i] = number1 + " " + operator + " " + number2;
+            correctAnswers[i] = Integer.toString(correctAnswer);
         }
 
-        Engine.end(scanner);
+        Engine.play(rules, questions, correctAnswers);
     }
 }
