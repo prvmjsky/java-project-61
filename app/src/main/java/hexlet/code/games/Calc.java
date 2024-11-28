@@ -8,7 +8,7 @@ public class Calc {
         return switch (operator) {
             case '+' -> number1 + number2;
             case '-' -> number1 - number2;
-            default -> (number1 / 2) * (number2 / 2); // balancing difficulty
+            default -> number1 * number2;
         };
     }
 
@@ -24,11 +24,18 @@ public class Calc {
             var number2 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
             char operator;
 
-            operator = switch (Engine.getRandomNumber(RANDOM_OPERATOR_BOUND)) {
-                case 0 -> '+';
-                case 1 -> '-';
-                default -> '*';
-            };
+            switch (Engine.getRandomNumber(RANDOM_OPERATOR_BOUND)) {
+                case 0:
+                    operator = '+';
+                    break;
+                case 1:
+                    operator = '-';
+                    break;
+                default:
+                    operator = '*';
+                    number1 = number1 / 2;
+                    number2 = number2 / 2;
+            }
 
             var correctAnswer = calculate(number1, number2, operator);
             questions[i] = number1 + " " + operator + " " + number2;
