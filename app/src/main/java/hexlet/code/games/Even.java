@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Even {
     private static final int RANDOM_NUMBER_BOUND = 100;
 
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
+    }
+
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
