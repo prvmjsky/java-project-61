@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public class GCD {
     private static final int RANDOM_NUMBER_BOUND = 100;
 

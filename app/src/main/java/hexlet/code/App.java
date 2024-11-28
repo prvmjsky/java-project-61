@@ -1,8 +1,11 @@
 package hexlet.code;
 
 import java.util.Scanner;
-
-import hexlet.code.games.*;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public class App {
     public static void main(String[] args) {

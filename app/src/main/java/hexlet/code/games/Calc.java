@@ -24,11 +24,11 @@ public class Calc {
             var number2 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
             char operator;
 
-            switch (Engine.getRandomNumber(RANDOM_OPERATOR_BOUND)) {
-                case 0 -> operator = '+';
-                case 1 -> operator = '-';
-                default -> operator = '*';
-            }
+            operator = switch (Engine.getRandomNumber(RANDOM_OPERATOR_BOUND)) {
+                case 0 -> '+';
+                case 1 -> '-';
+                default -> '*';
+            };
 
             var correctAnswer = calculate(number1, number2, operator);
             questions[i] = number1 + " " + operator + " " + number2;
