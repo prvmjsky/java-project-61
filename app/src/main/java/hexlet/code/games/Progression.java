@@ -24,6 +24,7 @@ public class Progression {
 
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
+        System.out.println("What number is missing in the progression?");
 
         while (Engine.isGameContinuing()) {
             int[] progression = getRandomProgression();
@@ -39,7 +40,6 @@ public class Progression {
                 }
             }
 
-            System.out.println("What number is missing in the progression?");
             System.out.println("Question: " + progressionForQuestion);
 
             var userAnswer = Engine.getUserAnswer(scanner);

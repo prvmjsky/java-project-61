@@ -8,6 +8,7 @@ public class Calc {
 
     public static void play(Scanner scanner) {
         Engine.greet(scanner);
+        System.out.println("What is the result of the expression?");
 
         while (Engine.isGameContinuing()) {
             var number1 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
@@ -32,7 +33,6 @@ public class Calc {
                 }
             };
 
-            System.out.println("What is the result of the expression?");
             System.out.println("Question: " + number1 + " " + operator + " " + number2);
 
             var userAnswer = Engine.getUserAnswer(scanner);
