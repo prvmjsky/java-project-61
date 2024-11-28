@@ -9,7 +9,7 @@ public class GCD {
         return (a % b == 0) ? Math.abs(b) : getGCD(b, a % b);
     }
 
-    public static void play(Scanner scanner) {
+    public static void start(Scanner scanner) {
         Engine.greet(scanner);
         System.out.println("Find the greatest common divisor of given numbers.");
 

@@ -22,7 +22,7 @@ public class Progression {
         return progression;
     }
 
-    public static void play(Scanner scanner) {
+    public static void start(Scanner scanner) {
         Engine.greet(scanner);
         System.out.println("What number is missing in the progression?");
 

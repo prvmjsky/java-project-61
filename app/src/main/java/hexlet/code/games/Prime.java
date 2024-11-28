@@ -19,7 +19,7 @@ public class Prime {
         return true;
     }
 
-    public static void play(Scanner scanner) {
+    public static void start(Scanner scanner) {
         Engine.greet(scanner);
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 

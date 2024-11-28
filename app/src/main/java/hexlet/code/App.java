@@ -24,11 +24,11 @@ public class App {
 
         switch (userChoice) {
             case "1" -> Cli.greetUser(scanner);
-            case "2" -> Even.play(scanner);
-            case "3" -> Calc.play(scanner);
-            case "4" -> GCD.play(scanner);
-            case "5" -> Progression.play(scanner);
-            case "6" -> Prime.play(scanner);
+            case "2" -> Even.start(scanner);
+            case "3" -> Calc.start(scanner);
+            case "4" -> GCD.start(scanner);
+            case "5" -> Progression.start(scanner);
+            case "6" -> Prime.start(scanner);
             default -> scanner.close();
         }
     }

@@ -9,7 +9,7 @@ public class Even {
         return number % 2 == 0;
     }
 
-    public static void play(Scanner scanner) {
+    public static void start(Scanner scanner) {
         Engine.greet(scanner);
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
