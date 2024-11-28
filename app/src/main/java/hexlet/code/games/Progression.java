@@ -10,7 +10,6 @@ public class Progression {
     private static final int RANDOM_HIDDEN_ELEMENT_BOUND = 10;
 
     public static int[] getRandomProgression() {
-
         int[] progression = new int[PROGRESSION_SIZE];
         progression[0] = Engine.getRandomNumber(RANDOM_ELEMENT_OF_PROGRESSION_BOUND);
         var step = Engine.getRandomNumber(RANDOM_STEP_BOUND) + 1;
@@ -22,14 +21,16 @@ public class Progression {
         return progression;
     }
 
-    public static void start(Scanner scanner) {
-        Engine.greet(scanner);
-        System.out.println("What number is missing in the progression?");
+    public static void start() {
+        var rules = "What number is missing in the progression?";
+        var finalRound = Engine.getFinalRound();
 
-        while (Engine.isGameContinuing()) {
+        String[] questions = new String[finalRound];
+        String[] correctAnswers = new String[finalRound];
+
+        for (var i = 0; i < finalRound; i++) {
             int[] progression = getRandomProgression();
             var hiddenElement = progression[Engine.getRandomNumber(RANDOM_HIDDEN_ELEMENT_BOUND)];
-            var correctAnswer = Integer.toString(hiddenElement);
 
             StringJoiner progressionForQuestion = new StringJoiner(" ");
             for (int num : progression) {
@@ -40,12 +41,10 @@ public class Progression {
                 }
             }
 
-            System.out.println("Question: " + progressionForQuestion);
-
-            var userAnswer = Engine.getUserAnswer(scanner);
-            Engine.compareAnswers(userAnswer, correctAnswer);
+            questions[i] = progressionForQuestion.toString();
+            correctAnswers[i] = Integer.toString(hiddenElement);
         }
 
-        Engine.end(scanner);
+        Engine.play(rules, questions, correctAnswers);
     }
 }
