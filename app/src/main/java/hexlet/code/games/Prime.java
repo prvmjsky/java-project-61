@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public class Prime {
     private static final int RANDOM_NUMBER_BOUND = 82; // multiplication table range
 
@@ -19,20 +17,19 @@ public class Prime {
         return true;
     }
 
-    public static void start(Scanner scanner) {
-        Engine.greet(scanner);
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    public static void start() {
+        var rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        var finalRound = Engine.getFinalRound();
 
-        while (Engine.isGameContinuing()) {
-            var randomNumber = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
-            var correctAnswer = isPrime(randomNumber) ? "yes" : "no";
+        String[] questions = new String[finalRound];
+        String[] correctAnswers = new String[finalRound];
 
-            System.out.println("Question: " + randomNumber);
-
-            var userAnswer = Engine.getUserAnswer(scanner);
-            Engine.compareAnswers(userAnswer, correctAnswer);
+        for (var i = 0; i < finalRound; i++) {
+            var number = Engine.getRandomNumber(RANDOM_NUMBER_BOUND) + 1; // added 1 to avoid 0
+            questions[i] = Integer.toString(number);
+            correctAnswers[i] = isPrime(number) ? "yes" : "no";
         }
 
-        Engine.end(scanner);
+        Engine.play(rules, questions, correctAnswers);
     }
 }
