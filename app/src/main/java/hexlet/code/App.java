@@ -20,7 +20,7 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        var userChoice = scanner.next();
+        var userChoice = scanner.nextLine();
 
         switch (userChoice) {
             case "1" -> Cli.greetUser(scanner);

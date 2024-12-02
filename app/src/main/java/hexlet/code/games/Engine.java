@@ -30,7 +30,7 @@ public class Engine {
     public static void greet() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        userName = SCANNER.next();
+        userName = SCANNER.nextLine();
         System.out.println("Hello, " + userName + "!");
     }
 
@@ -61,7 +61,7 @@ public class Engine {
         for (var i = 0; isGameContinuing(); i++) {
             System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
-            userAnswer = SCANNER.next();
+            userAnswer = SCANNER.nextLine();
             correctAnswer = correctAnswers[i];
             compareAnswers();
         }
