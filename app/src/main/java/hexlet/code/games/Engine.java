@@ -12,8 +12,6 @@ public class Engine {
     private static boolean isDefeated = false;
 
     private static String userName;
-    private static String userAnswer;
-    private static String correctAnswer;
 
     public static int getRandomNumber(int bound) {
         return RANDOMIZER.nextInt(bound);
@@ -30,16 +28,6 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
     }
 
-    public static void compareAnswers() {
-        if (userAnswer.equals(correctAnswer)) {
-            System.out.println("Correct!");
-            currentRound++;
-        } else {
-            System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-            isDefeated = true;
-        }
-    }
-
     public static void end() {
         if (isDefeated) {
             System.out.println("Let's try again, " + userName + "!");
@@ -54,12 +42,23 @@ public class Engine {
         greet();
         System.out.println(rules);
 
+        String userAnswer;
+        String correctAnswer;
+
         for (var i = 0; isGameContinuing(); i++) {
             System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
             userAnswer = SCANNER.nextLine();
             correctAnswer = correctAnswers[i];
-            compareAnswers();
+
+            if (userAnswer.equals(correctAnswer)) {
+                System.out.println("Correct!");
+                currentRound++;
+            } else {
+                System.out.println("'" + userAnswer
+                        + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                isDefeated = true;
+            }
         }
 
         end();
