@@ -7,7 +7,7 @@ public class Engine {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final Random RANDOMIZER = new Random();
 
-    private static final int FINAL_ROUND = 3;
+    public static final int FINAL_ROUND = 3;
     private static int currentRound = 1;
     private static boolean isDefeated = false;
 
@@ -17,10 +17,6 @@ public class Engine {
 
     public static int getRandomNumber(int bound) {
         return RANDOMIZER.nextInt(bound);
-    }
-
-    public static int getFinalRound() { // for cycles in start methods
-        return FINAL_ROUND;
     }
 
     public static boolean isGameContinuing() {

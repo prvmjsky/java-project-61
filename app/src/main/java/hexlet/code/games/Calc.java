@@ -14,12 +14,11 @@ public class Calc {
 
     public static void start() {
         var rules = "What is the result of the expression?";
-        var finalRound = Engine.getFinalRound();
 
-        String[] questions = new String[finalRound];
-        String[] correctAnswers = new String[finalRound];
+        String[] questions = new String[Engine.FINAL_ROUND];
+        String[] correctAnswers = new String[Engine.FINAL_ROUND];
 
-        for (var i = 0; i < finalRound; i++) {
+        for (var i = 0; i < Engine.FINAL_ROUND; i++) {
             var number1 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
             var number2 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
             char operator;

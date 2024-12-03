@@ -22,12 +22,11 @@ public class Progression {
 
     public static void start() {
         var rules = "What number is missing in the progression?";
-        var finalRound = Engine.getFinalRound();
 
-        String[] questions = new String[finalRound];
-        String[] correctAnswers = new String[finalRound];
+        String[] questions = new String[Engine.FINAL_ROUND];
+        String[] correctAnswers = new String[Engine.FINAL_ROUND];
 
-        for (var i = 0; i < finalRound; i++) {
+        for (var i = 0; i < Engine.FINAL_ROUND; i++) {
             int[] progression = getRandomProgression();
             var hiddenElement = progression[Engine.getRandomNumber(RANDOM_HIDDEN_ELEMENT_BOUND)];
 

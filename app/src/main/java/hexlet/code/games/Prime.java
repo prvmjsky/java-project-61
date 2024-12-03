@@ -19,12 +19,11 @@ public class Prime {
 
     public static void start() {
         var rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        var finalRound = Engine.getFinalRound();
 
-        String[] questions = new String[finalRound];
-        String[] correctAnswers = new String[finalRound];
+        String[] questions = new String[Engine.FINAL_ROUND];
+        String[] correctAnswers = new String[Engine.FINAL_ROUND];
 
-        for (var i = 0; i < finalRound; i++) {
+        for (var i = 0; i < Engine.FINAL_ROUND; i++) {
             var number = Engine.getRandomNumber(RANDOM_NUMBER_BOUND) + 1; // added 1 to avoid 0
             questions[i] = Integer.toString(number);
             correctAnswers[i] = isPrime(number) ? "yes" : "no";
