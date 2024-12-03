@@ -11,8 +11,6 @@ public class Engine {
     private static int currentRound = 1;
     private static boolean isDefeated = false;
 
-    private static String userName;
-
     public static int getRandomNumber(int bound) {
         return RANDOMIZER.nextInt(bound);
     }
@@ -21,27 +19,13 @@ public class Engine {
         return currentRound <= FINAL_ROUND && !isDefeated;
     }
 
-    public static void greet() {
+    public static void play(String rules, String[] questions, String[] correctAnswers) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        userName = SCANNER.nextLine();
+        String userName = SCANNER.nextLine();
         System.out.println("Hello, " + userName + "!");
-    }
 
-    public static void end() {
-        if (isDefeated) {
-            System.out.println("Let's try again, " + userName + "!");
-        } else {
-            System.out.println("Congratulations, " + userName + "!");
-        }
-
-        SCANNER.close();
-    }
-
-    public static void play(String rules, String[] questions, String[] correctAnswers) {
-        greet();
         System.out.println(rules);
-
         String userAnswer;
         String correctAnswer;
 
@@ -61,6 +45,10 @@ public class Engine {
             }
         }
 
-        end();
+        if (isDefeated) {
+            System.out.println("Let's try again, " + userName + "!");
+        } else {
+            System.out.println("Congratulations, " + userName + "!");
+        }
     }
 }
