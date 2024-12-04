@@ -1,19 +1,18 @@
 package hexlet.code.games;
 
-import java.util.StringJoiner;
-
 public class Progression {
     private static final int SIZE = 10;
     private static final int SEED_BOUND = 20;
     private static final int STEP_BOUND = 10;
-    private static final int INDEX_OF_HIDDEN_ELEMENT_BOUND = 10;
+    private static final int HIDDEN_ELEMENT_INDEX_BOUND = 10;
 
-    public static int[] getRandomProgression(int size, int seed, int step) {
-        int[] progression = new int[size];
-        progression[0] = seed;
+    public static String[] getRandomProgression(int size, int seed, int step) {
+        String[] progression = new String[size];
+        var currentNumber = seed;
 
-        for (var i = 1; i < size; i++) {
-            progression[i] = progression[i - 1] + step;
+        for (var i = 0; i < size; i++) {
+            progression[i] = Integer.toString(currentNumber);
+            currentNumber += step;
         }
 
         return progression;
@@ -28,65 +27,16 @@ public class Progression {
         for (var i = 0; i < Engine.FINAL_ROUND; i++) {
             var seed = Engine.getRandomNumber(SEED_BOUND);
             var step = Engine.getRandomNumber(STEP_BOUND) + 1;
-            int[] progression = getRandomProgression(SIZE, seed, step);
-            var hiddenElement = progression[Engine.getRandomNumber(INDEX_OF_HIDDEN_ELEMENT_BOUND)];
+            String[] progression = getRandomProgression(SIZE, seed, step);
 
-            StringJoiner progressionForQuestion = new StringJoiner(" ");
-            for (int num : progression) {
-                if (num == hiddenElement) {
-                    progressionForQuestion.add("..");
-                } else {
-                    progressionForQuestion.add(Integer.toString(num));
-                }
-            }
+            var hiddenElementIndex = Engine.getRandomNumber(HIDDEN_ELEMENT_INDEX_BOUND);
+            var hiddenElement = progression[hiddenElementIndex];
+            progression[hiddenElementIndex] = "..";
 
-            questions[i] = progressionForQuestion.toString();
-            correctAnswers[i] = Integer.toString(hiddenElement);
+            questions[i] = String.join(" ", progression);
+            correctAnswers[i] = hiddenElement;
         }
 
         Engine.play(rules, questions, correctAnswers);
     }
 }
-//    private static final int PROGRESSION_SIZE = 10;
-//    private static final int RANDOM_ELEMENT_OF_PROGRESSION_BOUND = 20;
-//    private static final int RANDOM_STEP_BOUND = 10;
-//    private static final int RANDOM_HIDDEN_ELEMENT_BOUND = 10;
-//
-//    public static int[] getRandomProgression() {
-//        int[] progression = new int[PROGRESSION_SIZE];
-//        progression[0] = Engine.getRandomNumber(RANDOM_ELEMENT_OF_PROGRESSION_BOUND);
-//        var step = Engine.getRandomNumber(RANDOM_STEP_BOUND) + 1;
-//
-//        for (var i = 1; i < PROGRESSION_SIZE; i++) {
-//            progression[i] = progression[i - 1] + step;
-//        }
-//
-//        return progression;
-//    }
-//
-//    public static void start() {
-//        var rules = "What number is missing in the progression?";
-//
-//        String[] questions = new String[Engine.FINAL_ROUND];
-//        String[] correctAnswers = new String[Engine.FINAL_ROUND];
-//
-//        for (var i = 0; i < Engine.FINAL_ROUND; i++) {
-//            int[] progression = getRandomProgression();
-//            var hiddenElement = progression[Engine.getRandomNumber(RANDOM_HIDDEN_ELEMENT_BOUND)];
-//
-//            StringJoiner progressionForQuestion = new StringJoiner(" ");
-//            for (int num : progression) {
-//                if (num == hiddenElement) {
-//                    progressionForQuestion.add("..");
-//                } else {
-//                    progressionForQuestion.add(Integer.toString(num));
-//                }
-//            }
-//
-//            questions[i] = progressionForQuestion.toString();
-//            correctAnswers[i] = Integer.toString(hiddenElement);
-//        }
-//
-//        Engine.play(rules, questions, correctAnswers);
-//    }
-//} todo: убрать это всё, когда закончу
