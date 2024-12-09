@@ -15,10 +15,6 @@ public class Engine {
         return RANDOMIZER.nextInt(bound);
     }
 
-    public static boolean isGameContinuing() {
-        return currentRound <= FINAL_ROUND && !isDefeated;
-    }
-
     public static void play(String rules, String[] questions, String[] correctAnswers) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
@@ -29,7 +25,7 @@ public class Engine {
         String userAnswer;
         String correctAnswer;
 
-        for (var i = 0; isGameContinuing(); i++) {
+        for (var i = 0; currentRound <= FINAL_ROUND && !isDefeated; i++) {
             System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
             userAnswer = SCANNER.nextLine();
