@@ -4,7 +4,7 @@ public class Calc {
     private static final int RANDOM_NUMBER_BOUND = 50;
     private static final int RANDOM_OPERATOR_BOUND = 3;
 
-    public static Integer calculate(int number1, int number2, char operator) {
+    private static Integer calculate(int number1, int number2, char operator) {
         return switch (operator) {
             case '+' -> number1 + number2;
             case '-' -> number1 - number2;

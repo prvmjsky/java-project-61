@@ -6,7 +6,7 @@ public class Progression {
     private static final int STEP_BOUND = 10;
     private static final int HIDDEN_ELEMENT_INDEX_BOUND = 10;
 
-    public static String[] getRandomProgression(int size, int seed, int step) {
+    private static String[] getRandomProgression(int size, int seed, int step) {
         String[] progression = new String[size];
         var currentNumber = seed;
 
