@@ -8,7 +8,7 @@ public class Calc {
             case '+' -> number1 + number2;
             case '-' -> number1 - number2;
             case '*' -> number1 * number2;
-            default -> null;
+            default -> throw new IllegalArgumentException(String.format("Unknown operator! Operator = %s", operator));
         };
     }
 
