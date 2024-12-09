@@ -6,16 +6,16 @@ public class Engine {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     public static final int FINAL_ROUND = 3;
-    private static int currentRound = 1;
-    private static boolean isDefeated = false;
 
     public static void play(String rules, String[] questions, String[] correctAnswers) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String userName = SCANNER.nextLine();
         System.out.println("Hello, " + userName + "!");
-
         System.out.println(rules);
+
+        var currentRound = 1;
+        var isDefeated = false;
         String userAnswer;
         String correctAnswer;
 
