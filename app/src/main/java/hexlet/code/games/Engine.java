@@ -1,19 +1,13 @@
 package hexlet.code.games;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
     private static final Scanner SCANNER = new Scanner(System.in);
-    private static final Random RANDOMIZER = new Random();
 
     public static final int FINAL_ROUND = 3;
     private static int currentRound = 1;
     private static boolean isDefeated = false;
-
-    public static int getRandomNumber(int bound) {
-        return RANDOMIZER.nextInt(bound);
-    }
 
     public static void play(String rules, String[] questions, String[] correctAnswers) {
         System.out.println("Welcome to the Brain Games!");

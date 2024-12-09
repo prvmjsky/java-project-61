@@ -25,11 +25,11 @@ public class Progression {
         String[] correctAnswers = new String[Engine.FINAL_ROUND];
 
         for (var i = 0; i < Engine.FINAL_ROUND; i++) {
-            var seed = Engine.getRandomNumber(SEED_BOUND);
-            var step = Engine.getRandomNumber(STEP_BOUND) + 1;
+            var seed = Utils.getRandomNumber(SEED_BOUND);
+            var step = Utils.getRandomNumber(1, STEP_BOUND);
             String[] progression = getRandomProgression(SIZE, seed, step);
 
-            var hiddenElementIndex = Engine.getRandomNumber(HIDDEN_ELEMENT_INDEX_BOUND);
+            var hiddenElementIndex = Utils.getRandomNumber(HIDDEN_ELEMENT_INDEX_BOUND);
             var hiddenElement = progression[hiddenElementIndex];
             progression[hiddenElementIndex] = "..";
 

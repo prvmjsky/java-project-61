@@ -14,7 +14,7 @@ public class Even {
         String[] correctAnswers = new String[Engine.FINAL_ROUND];
 
         for (var i = 0; i < Engine.FINAL_ROUND; i++) {
-            var number = Engine.getRandomNumber(RANDOM_NUMBER_BOUND) + 1; // added 1 to avoid 0
+            var number = Utils.getRandomNumber(1, RANDOM_NUMBER_BOUND);
             questions[i] = Integer.toString(number);
             correctAnswers[i] = isEven(number) ? "yes" : "no";
         }

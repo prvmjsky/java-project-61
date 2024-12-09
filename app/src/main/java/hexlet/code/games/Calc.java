@@ -20,11 +20,11 @@ public class Calc {
         String[] correctAnswers = new String[Engine.FINAL_ROUND];
 
         for (var i = 0; i < Engine.FINAL_ROUND; i++) {
-            var number1 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
-            var number2 = Engine.getRandomNumber(RANDOM_NUMBER_BOUND);
+            var number1 = Utils.getRandomNumber(RANDOM_NUMBER_BOUND);
+            var number2 = Utils.getRandomNumber(RANDOM_NUMBER_BOUND);
             char operator;
 
-            switch (Engine.getRandomNumber(RANDOM_OPERATOR_BOUND)) {
+            switch (Utils.getRandomNumber(RANDOM_OPERATOR_BOUND)) {
                 case 0:
                     operator = '+';
                     break;
