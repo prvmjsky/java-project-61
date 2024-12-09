@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 public class Calc {
     private static final int RANDOM_NUMBER_BOUND = 50;
-    private static final int RANDOM_OPERATOR_BOUND = 3;
 
     private static Integer calculate(int number1, int number2, char operator) {
         return switch (operator) {
@@ -18,23 +17,16 @@ public class Calc {
 
         String[] questions = new String[Engine.FINAL_ROUND];
         String[] correctAnswers = new String[Engine.FINAL_ROUND];
+        Character[] operators = {'+', '-', '*'};
 
         for (var i = 0; i < Engine.FINAL_ROUND; i++) {
             var number1 = Utils.getRandomNumber(RANDOM_NUMBER_BOUND);
             var number2 = Utils.getRandomNumber(RANDOM_NUMBER_BOUND);
-            char operator;
+            char operator = operators[Utils.getRandomNumber(operators.length)];
 
-            switch (Utils.getRandomNumber(RANDOM_OPERATOR_BOUND)) {
-                case 0:
-                    operator = '+';
-                    break;
-                case 1:
-                    operator = '-';
-                    break;
-                default:
-                    operator = '*';
-                    number1 = number1 / 2;
-                    number2 = number2 / 2;
+            if (operator == '*') {
+                number1 = number1 / 2;
+                number2 = number2 / 2;
             }
 
             var correctAnswer = calculate(number1, number2, operator);
